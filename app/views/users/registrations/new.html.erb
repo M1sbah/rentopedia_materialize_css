@@ -1,0 +1,45 @@
+ <h2 class="card-panel blue darken-1 center-align hoverable">Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"validate" %>
+      <%= f.label :email %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.password_field :password, autocomplete: "new-password", class:"validate" %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <%= f.label :password %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"validate" %>
+      <%= f.label :password_confirmation %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="actions">
+        <%= f.submit "Sign up", class:"waves-effect waves-light btn blue darken-2"  %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+<div class="row">
+  <div class="col">
+    <%= link_to "Already have a account? Log in", new_session_path(resource_name) %>
+  </div>
+</div>

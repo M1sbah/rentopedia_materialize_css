@@ -1,0 +1,47 @@
+
+<%if params[:action]=='index' %>
+<div class="col s10 m6 ">
+<%else%>
+<div class="container">
+<%end%>
+  <div style="width:500px;" class="card s3">
+    <div class="card-image waves-effect waves-block waves-light">
+      <%= image_tag 'default', class:"activator" %>
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><%= category.title %><i class="material-icons right">more_vert</i></span>
+      <% if params[:action]=='index'%>
+        <p><%= link_to "open", category %></p>
+      <%end%>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Title:- <%= category.title %> <i class="material-icons right">close</i></span>
+      <p>Description:- <%= category.desc %></p>
+      <% if params[:action]=='show'%>
+        <%= link_to "Edit", edit_category_path(category), class:"btn " %> |
+        <%= link_to :back, categories_path, class:"btn blue lighten-1"%>  |
+          <%= link_to "Delete", category, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn red dark-8" %>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+
+<!--
+<div id="<%= dom_id category %>">
+  <p>
+    <strong>Title:</strong>
+    <%= category.title %>
+  </p>
+
+  <p>
+    <strong>Desc:</strong>
+    <%= category.desc %>
+  </p>
+
+  <p>
+    <strong>User Mail:</strong>
+    <%= category.user.email %>
+  </p>
+
+</div>-->

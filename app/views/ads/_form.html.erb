@@ -1,0 +1,57 @@
+<%= form_with(model: ad) do |form| %>
+  <% if ad.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
+
+      <ul>
+        <% ad.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="input-field col s12">
+     
+      <%= form.text_field :title %>
+       <%= form.label :title, style: "display: block active", class:"validate" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <%= form.text_area :desc , class:"materialize-textarea"%>
+      <%= form.label :desc %>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="input-field col s12">
+      <%= form.number_field :price , class:"validate"%>
+      <%= form.label :price %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <%= form.text_area :location , class:"materialize-textarea"%>
+      <%= form.label :location %>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <%#= form.label :category_id, style: "display: block" %>
+
+    <%= form.collection_select :category_id, Category.all, :id, :title, {prompt: "Choose a category"}, class:"browser-default" %>
+
+    <%#= form.text_field :category_id %>
+  </div>
+
+  <div>
+    <%= form.submit class:"btn large"%>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<div class="col s12 m6">
+  <div class="card blue-grey darken-1">
+    <div class="card-content white-text">
+      <span class="card-title">Title:-<%= ad.title %></span>
+      <p>
+        <strong>Description:</strong>
+        <%= ad.desc %>
+      </p>
+      <% if params[:action]=="show" %>
+        <p>
+          <strong>Price:</strong>
+          <%= ad.price %>
+        </p>
+        <p>
+          <strong>Location:</strong>
+          <%= ad.location %>
+        </p>
+        <p>
+          <strong>User Mail</strong>
+          <%= ad.user.email %>
+        </p>
+        <p>
+          <strong>Category:</strong>
+          <%=link_to "#{ad.category.title }", ad.category,class:"link-tag" %>
+        </p>
+      <%end%>
+    </div>
+    <div class="card-action">
+      <% if params[:action]=="show"%>
+        <%= link_to "Edit", edit_ad_path(ad) %>
+        <%= link_to "Delete", ad, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn red dark-8" %>
+
+      <%else%>
+        <%= link_to "show", ad%>
+      <%end%>
+    </div>
+  </div>
+</div>
+

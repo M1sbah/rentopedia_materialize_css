@@ -1,0 +1,12 @@
+
+<h1 class="card-panel  cyan darken-3 center-align" >Categories</h1>
+
+<div id="categories">
+  <div class="container-fluid">
+    <div class="row">
+      <% @categories.each do |category| %>
+        <%= render category %>
+      <% end %>
+    </div>
+  </div>
+</div>

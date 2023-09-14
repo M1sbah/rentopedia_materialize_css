@@ -1,0 +1,10 @@
+<h1>Ads</h1>
+<div id="ads">
+  <div class="container-fluid">
+    <div class="row">
+      <% @ads.each do |ad| %>
+        <%= render ad %>
+      <% end %>
+    </div>
+  </div>
+</div>

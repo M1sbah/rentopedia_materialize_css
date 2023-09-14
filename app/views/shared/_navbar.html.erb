@@ -1,0 +1,42 @@
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><%= link_to "New category", new_category_path %></li>
+  <li><%= link_to "New ad", new_ad_path %></li>
+  <li class="divider"></li>
+  <li><a href="#">three</a></li>
+</ul>
+
+<ul id="dropdown2" class="dropdown-content">
+  <li><%= link_to "New category", new_category_path %></li>
+  <li><%= link_to "New ad", new_ad_path %></li>
+  <li class="divider"></li>
+  <li><a href="#">three</a></li>
+</ul>
+
+
+<ul class="sidenav" id="mobile-demo">
+  <li><a href="sass.html">Category</a></li>
+  <li><a href="badges.html">Ads</a></li>
+  <li><a class="dropdown-trigger" href="#" data-target="dropdown2">List<i class="material-icons right">arrow_drop_down</i></a></li>
+</ul>
+
+
+<nav>
+  <header class="nav-wrapper">
+    <a href="<%= root_path %>" class="brand-logo">Rentopedia</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <!--<li>
+        <%#= link_to root_path do%>
+          <i class="large material-icons">home</i>
+        <#%end%>-->
+      </li>
+      <li>
+        <%=link_to '<i class="large material-icons">home</i>'.html_safe, root_path %>
+      </li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-trigger" href="#" data-target="dropdown1">List<i class="material-icons right">arrow_drop_down</i></a></li>
+      <%= navlink%>
+    </ul>
+  </header>
+</nav>
